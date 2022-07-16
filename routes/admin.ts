@@ -1,23 +1,13 @@
 import { Router } from 'express';
-
-
-const products: any[] = [];
 const router = Router();
 
 
-router.get('/add-product', (req, res) => {
-    res.render('add-product', {
-        pageTitle: 'Add Product',
-        path: '/admin/add-product'
-    });
-});
-router.post('/add-product', (req, res) => {
-    const product = req.body;
-    console.log(product);
-    products.push(product);
-    res.redirect('/');
-});
+const productsController = require('../controllers/products');
+
+
+router.get('/add-product', productsController.getAddProduct);
+router.post('/add-product', productsController.postAddProduct);
 
 
 
-export default { routes: router, products };
+export default router;

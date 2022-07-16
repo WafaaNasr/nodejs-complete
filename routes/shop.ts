@@ -1,15 +1,8 @@
 import { Router } from "express";
-import admin from './admin';
+const productsController = require('../controllers/products');
 
 const router = Router();
-const { products } = admin;
 
-router.get('/', (req, res) => {
-    res.render("shop", {
-        pageTitle: 'Shop',
-        path: '/',
-        products
-    });
-});
+router.get('/', productsController.getShop);
 
 export default router; 
