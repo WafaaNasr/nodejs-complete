@@ -1,12 +1,15 @@
 import { Router } from "express";
-import path from "path";
-import routePath from '../utils/path';
+import admin from './admin';
 
 const router = Router();
-
+const { products } = admin;
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(routePath, "views", "shop.html"));
+    res.render("shop", {
+        pageTitle: 'Shop',
+        path: '/',
+        products
+    });
 });
 
 export default router; 

@@ -23,10 +23,10 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noErrorTruncation": true,
-    "pretty": true
+    "pretty": true,
   },
   "include": [
-    "./src/*/"
+    "*"
   ],
   "exclude": [
     "node_modules/*"
