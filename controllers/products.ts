@@ -1,12 +1,12 @@
-const products: any[] = [];
-
+import { Product } from '../models/product';
 
 exports.getShop = (req: any, res: any) => {
-    res.render("shop", {
-        pageTitle: 'Shop',
-        path: '/',
-        products
-    });
+    Product.fetchAll((products: any) =>
+        res.render("shop", {
+            pageTitle: 'Shop',
+            path: '/',
+            products
+        }));
 };
 
 exports.getAddProduct = (req: any, res: any) => {
@@ -17,8 +17,7 @@ exports.getAddProduct = (req: any, res: any) => {
 };
 
 exports.postAddProduct = (req: any, res: any) => {
-    const product = req.body;
-    console.log(product);
-    products.push(product);
+    const product = new Product(req.body.title);
+    product.save();
     res.redirect('/');
 };
