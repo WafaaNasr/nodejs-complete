@@ -12,13 +12,15 @@ const readProductsFromFile = (callback: any) => {
     });
 };
 export class Product {
-    constructor(public title: string) { };
+    constructor(public title: string,
+        public imageURL: string,
+        public price: number,
+        public description: string) { };
 
 
     save() {
         readProductsFromFile((products: any) => {
             products.push(this);
-            console.log(products);
             fs.writeFile(productsFilePath, JSON.stringify(products), (err) => console.log);
         });
     }
