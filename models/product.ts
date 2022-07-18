@@ -12,13 +12,17 @@ const readProductsFromFile = (callback: any) => {
     });
 };
 export class Product {
-    constructor(public title: string,
+    private readonly id: string = Math.random().toString();
+    constructor(
+        public title: string,
         public imageURL: string,
         public price: number,
-        public description: string) { };
+        public description: string) {
+    };
 
 
     save() {
+        console.log(this.id);
         readProductsFromFile((products: any) => {
             products.push(this);
             fs.writeFile(productsFilePath, JSON.stringify(products), (err) => console.log);
@@ -26,5 +30,11 @@ export class Product {
     }
     static fetchAll(callback: any) {
         readProductsFromFile(callback);
+    }
+    static fetchProduct(productId: any, callback: any) {
+        readProductsFromFile((products: any) => {
+            const product = products.find((p: any) => p.id === productId);
+            callback(product);
+        });
     }
 }
