@@ -1,16 +1,9 @@
 [
     {
-        "id": "12345",
-        "title": "BOOK 1",
+        "title": "One",
         "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBzAX86jqrDNYFU6A_GOUevH_uq5Ec0vSgiQ&usqp=CAU",
-        "price": "10.2",
-        "description": "Description 1"
-    },
-    {
-        "title": "Product 2",
-        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBzAX86jqrDNYFU6A_GOUevH_uq5Ec0vSgiQ&usqp=CAU",
-        "price": "20.90",
+        "price": "20",
         "description": "",
-        "id": "0.09888785621380447"
+        "id": "0.20862269995102012"
     }
 ]

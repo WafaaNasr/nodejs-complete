@@ -33,7 +33,7 @@ export class Product {
     }
     static fetchProduct(productId: any, callback: any) {
         readProductsFromFile((products: any) => {
-            const product = products.find((p: any) => p.id === productId);
+            const product = products.find((p: Product) => +p.id === +productId);
             callback(product);
         });
     }
